@@ -1,0 +1,21 @@
+
+
+<h2>Blogs of <%= link_to @user.name, @user%></h2>
+
+
+<ul class="blogs">
+  <% @blogs.each do |blog| %>
+    <li>
+    <h3> <%= blog.title  %>: <h3> </br>
+    <%= blog.description %> </br>
+     
+
+    Posted By
+    <%= @user.name %>
+    (<%= time_ago_in_words(blog.created_at) %> ago) </br>
+     <%= link_to 'Show this Blog',user_blog_path(@user,blog)%> 
+     
+    </li>
+  <% end %>
+   <%= link_to " Create new blog", new_user_blog_path(@user)%> 
+</ul>

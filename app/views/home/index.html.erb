@@ -1,0 +1,13 @@
+
+<% if current_user %>
+ Logged in as <%= current_user.name %> from <%= current_user.address %>.
+ <%= link_to 'Log Out', logout_path %> </br> </br>
+ for vlog  <%= link_to 'see_vlog' ,user_blogs_path(current_user)%>
+ create vlog <%= link_to 'create_vlog ',new_user_blog_path(current_user)%>
+
+<% else %>
+ <%= link_to 'Sign Up', signup_path %> or
+ <%= link_to 'Log In', login_path %></br> </br>
+ <%= link_to "Back to blogs", user_blogs_path(:user_id)%>
+<% end %>
+<p id='notice'><%= notice %></p>
